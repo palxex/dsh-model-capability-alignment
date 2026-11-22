@@ -1,0 +1,10 @@
+# Bundle patch: insert this plugin's own row into the web profile roster.
+# The entry id is also the settings namespace: `SettingsForms` derives one form
+# per profile entry from that entry's Config schema, and `settings.plugin.item`
+# pairs its key with the same id.
+- insert:
+    - id: model-capability-alignment
+      name: 'dsh-model-capability-alignment'
+      config:
+        fillInput: true
+        fillReasoningEfforts: true

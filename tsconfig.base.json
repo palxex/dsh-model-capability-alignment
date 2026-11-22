@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@deepseek-ai/cordis": ["./node_modules/@deepseek-ai/cordis"],
+      "@deepseek-ai/dsh-typert-protocol": ["./node_modules/@deepseek-ai/dsh-typert-protocol"]
+    }
+  }
+}

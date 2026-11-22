@@ -1,0 +1,74 @@
+{
+  "name": "dsh-model-capability-alignment",
+  "version": "1.0.0",
+  "description": "Align model capabilities pi-ai discovery deliberately omits (input modalities, reasoning efforts) with what each route actually serves, and prune models that cannot answer \u2014 for the models a user keeps, written into the dsh profile patch with a backup.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ],
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.client.json && node scripts/build-client.mjs",
+    "test": "tsx --test test/*.test.ts",
+    "pack": "npm pack"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "pi-ai",
+    "model-capabilities",
+    "modalities",
+    "reasoning-efforts",
+    "yaml"
+  ],
+  "dependencies": {
+    "yaml": "^2.9.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0"
+  }
+}
